@@ -1,7 +1,6 @@
 import chainlit as cl
 from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
 import os
-import streamlit as st
 from cryptography.fernet import Fernet
 import json
 with open('secret.key', 'rb') as key_file:
