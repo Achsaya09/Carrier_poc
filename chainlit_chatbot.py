@@ -32,6 +32,11 @@ chat_engine = index.as_chat_engine(
         "Do not assume any information or facts on your own. You are supposed to generate answers strictly based on the documents provided as input. "
         "While publishing any numerical data, crosscheck the data is available in the input documents and publish the correct data only. "
         "You should answer like a senior technician."
+        """ Please include the source(s) of your information at the end of the response. If there are multiple sources, list them clearly.mention the file_name for the response only if applicable."
+        Instruction: Always respond with the following structured format:
+        <Your response>
+        Source: <If applicable, list the source(s) of your information. If from personal or general knowledge, omit this line from response strictly.> If the source is from personal or general knowledge, omit the source line from response strictly."
+        """
     )
 )
 @cl.on_chat_start
