@@ -5,6 +5,24 @@ from cryptography.fernet import Fernet
 from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_storage
 from llama_index.core.memory import ChatMemoryBuffer
 
+
+st.markdown(
+    """
+    <style>
+    /* Hide the Streamlit header */
+    header {visibility: hidden;}
+    
+    /* Hide bot icon in chat history */
+    .css-1rs6os.edgvbvh3 {visibility: hidden;} /* Additional styling for certain versions */
+    
+    .chat-message__avatar {
+        display: none !important;  /* Ensures the bot icon is hidden */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Load encryption key
 with open('secret.key', 'rb') as key_file:
     key = key_file.read()
