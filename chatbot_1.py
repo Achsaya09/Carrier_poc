@@ -22,6 +22,7 @@ data = {key: cipher_suite.decrypt(value.encode()).decode() for key, value in enc
 # Set API key
 os.environ['OPENAI_API_KEY'] = data["API_KEY"]
 memory = ChatMemoryBuffer.from_defaults(token_limit=10000)  # Adjust token limit as needed
+st.set_page_config(page_title="Troubleshooting Assistant")
 
 st.markdown(
     """
@@ -63,7 +64,7 @@ chat_engine = index.as_chat_engine(
 )
 
 # Initialize Streamlit app
-st.set_page_config(page_title="Troubleshooting Assistant")
+
 st.sidebar.title('Troubleshooting Assistant')
 st.sidebar.markdown("**Hi, Welcome to the Troubleshooting Assistant.**")
 st.sidebar.markdown("This assistant helps diagnose and resolve issues by providing relevant information.")
