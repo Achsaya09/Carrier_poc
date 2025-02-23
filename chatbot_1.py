@@ -6,22 +6,6 @@ from llama_index.core import VectorStoreIndex, StorageContext, load_index_from_s
 from llama_index.core.memory import ChatMemoryBuffer
 
 
-st.markdown(
-    """
-    <style>
-    /* Hide the Streamlit header */
-    header {visibility: hidden;}
-    
-    /* Hide bot icon in chat history */
-    .css-1rs6os.edgvbvh3 {visibility: hidden;} /* Additional styling for certain versions */
-    
-    .chat-message__avatar {
-        display: none !important;  /* Ensures the bot icon is hidden */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # Load encryption key
 with open('secret.key', 'rb') as key_file:
@@ -38,6 +22,23 @@ data = {key: cipher_suite.decrypt(value.encode()).decode() for key, value in enc
 # Set API key
 os.environ['OPENAI_API_KEY'] = data["API_KEY"]
 memory = ChatMemoryBuffer.from_defaults(token_limit=10000)  # Adjust token limit as needed
+
+st.markdown(
+    """
+    <style>
+    /* Hide the Streamlit header */
+    header {visibility: hidden;}
+    
+    /* Hide bot icon in chat history */
+    .css-1rs6os.edgvbvh3 {visibility: hidden;} /* Additional styling for certain versions */
+    
+    .chat-message__avatar {
+        display: none !important;  /* Ensures the bot icon is hidden */
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
 # Load stored embeddings
 storage_context = StorageContext.from_defaults(persist_dir="llama_embeddings_new_2_carrier")
