@@ -399,7 +399,7 @@ if user_input := st.chat_input("Enter your query"):
 # Show download button if report is generated
 if st.session_state['report_generated']:
     with open(st.session_state['report_content'], "rb") as pdf_file:
-        st.download_button(label="Download Troubleshooting Report",
+        st.download_button(label="Download Customer Service Report",
                            data=pdf_file,
-                           file_name="troubleshooting_report.pdf",
+                           file_name="customer_service_report.pdf",
                            mime="application/pdf")
